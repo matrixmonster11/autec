@@ -9,3 +9,6 @@ android
 .dart_tool
 ios
 web
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
