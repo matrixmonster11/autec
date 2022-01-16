@@ -73,10 +73,18 @@ flutter:
     - assets/transport.jpg
     - assets/locked.png
     - assets/horse.jpg
+    - assets/lamb.jpg
+    - assets/cricket.jpg
+    - assets/seagull.jpg
+    - assets/sparrow.jpg
     - assets/audio/bee.mp3
     - assets/audio/dog.mp3
     - assets/audio/cat.mp3
     - assets/audio/horse.mp3
+    - assets/audio/lamb.mp3
+    - assets/audio/crickets.mp3
+    - assets/audio/seagull.mp3
+    - assets/audio/sparrow.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

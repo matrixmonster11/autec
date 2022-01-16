@@ -102,7 +102,7 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
             ),
             RawMaterialButton(
                 child: Image.asset(
-                  'assets/lamb.png',
+                  'assets/lamb.jpg',
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
@@ -114,13 +114,37 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
             ),
             RawMaterialButton(
                 child: Image.asset(
-                  'assets/locked.png',
+                  'assets/cricket.jpg',
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
                 ),
-                onPressed: () {} //=> _audioCache.play('bee.mp3'),
+              onPressed: () => {_audioCache.play('audio/crickets.mp3')},
                 ),
+            Container(
+              height: 20.0,
+            ),
+            RawMaterialButton(
+              child: Image.asset(
+                'assets/seagull.jpg',
+                width: 300,
+                height: 300,
+                fit: BoxFit.contain,
+              ),
+              onPressed: () => {_audioCache.play('audio/seagull.mp3')},
+            ),
+            Container(
+              height: 20.0,
+            ),
+            RawMaterialButton(
+              child: Image.asset(
+                'assets/sparrow.jpg',
+                width: 300,
+                height: 300,
+                fit: BoxFit.contain,
+              ),
+              onPressed: () => {_audioCache.play('audio/sparrow.mp3')},
+            ),
           ],
         ),
       ),
