@@ -1,0 +1,11 @@
+node_modules
+package-lock.json
+*.iml
+*.ipr
+*.iws
+.idea/
+build
+android
+.dart_tool
+ios
+web

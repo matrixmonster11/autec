@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:autec/first_sound.dart';
+import 'package:autec/sounds/first_sound.dart';
 import 'package:autec/gift.dart';
 import 'package:autec/setting.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          'Autech',
+          'Satisfactoria',
           style: TextStyle(fontFamily: '', fontSize: 41, color: Colors.black),
         ),
         centerTitle: true,

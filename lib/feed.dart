@@ -8,7 +8,7 @@ class Feed extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Autech',style: TextStyle(fontFamily: '', fontSize: 41,color: Colors.black),),
+        title: Text('Satisfactoria',style: TextStyle(fontFamily: '', fontSize: 41,color: Colors.black),),
         centerTitle: true,
         actions: <Widget>[
         ],
