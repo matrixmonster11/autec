@@ -95,22 +95,22 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                   height: 300,
                   fit: BoxFit.contain,
                 ),
-                onPressed: () {} //=> _audioCache.play('bee.mp3'),
+                onPressed: () => {_audioCache.play('audio/horse.mp3')},
                 ),
             Container(
               height: 20.0,
             ),
             RawMaterialButton(
                 child: Image.asset(
-                  'assets/locked.png',
+                  'assets/lamb.png',
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
                 ),
-                onPressed: () {} //=> _audioCache.play('bee.mp3'),
+              onPressed: () => {_audioCache.play('audio/lamb.mp3')},
                 ),
             Container(
-              height: 35.0,
+              height: 20.0,
             ),
             RawMaterialButton(
                 child: Image.asset(
