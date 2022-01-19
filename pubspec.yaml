@@ -30,11 +30,42 @@ dependencies:
   flutter:
     sdk: flutter
   audioplayers: ^0.20.1
+  flutter_svg: ^0.22.0
+  sizer: ^2.0.13
+  get: ^4.3.8
+  multi_image_picker: ^4.8.01
+  flutter_slidable: ^0.6.0
+  permission_handler: ^8.1.4+2
+  custom_radio_grouped_button: ^2.0.0
+  qr_code_scanner: ^0.5.2
+  animated_widgets: ^1.1.0
+  easy_localization: ^3.0.0
+  syncfusion_flutter_calendar: ^19.2.55
+  syncfusion_flutter_gauges: ^19.2.55
+  desktop_window: ^0.4.0
+  provider: ^6.0.0
+  http: ^0.13.3
+  qr_flutter: ^4.0.0
+  flutter_blue: ^0.8.0
+  google_fonts: ^2.1.0
+  intl: ^0.17.0
+  vibration: ^1.7.4-nullsafety.0
+  hand_signature: ^2.1.0+2
+  api_cache_manager: ^1.0.2
+  snippet_coder_utils: ^1.0.9
+  mime_type: ^1.0.0
+  progress_state_button: ^1.0.4
+  dio: ^4.0.4
+  ffi: ^1.1.2
+  cupertino_icons: ^1.0.3
+  collection: ^1.15.0
+  grouped_list: ^4.1.0
+  flutter_dotenv: ^5.0.2
+  http_parser: ^4.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -77,14 +108,24 @@ flutter:
     - assets/cricket.jpg
     - assets/seagull.jpg
     - assets/sparrow.jpg
+    - assets/Satisfactoria_logo_v4.png
+    - assets/vache.png
+    - assets/quiz.png
     - assets/audio/bee.mp3
     - assets/audio/dog.mp3
     - assets/audio/cat.mp3
     - assets/audio/horse.mp3
     - assets/audio/lamb.mp3
-    - assets/audio/crickets.mp3
+    - assets/audio/cricket.mp3
     - assets/audio/seagull.mp3
     - assets/audio/sparrow.mp3
+    - assets/.env
+
+  fonts:
+    - family: Sofia
+      fonts:
+        - asset: assets/fonts/Sofia-Regular.ttf
+        - asset: assets/fonts/Sofia-Pro-Light.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

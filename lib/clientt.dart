@@ -1,9 +1,17 @@
 import 'dart:ui';
 
+import 'package:autec/evaluation.dart';
+import 'package:autec/quiz/quizInterface.dart';
 import 'package:autec/sounds/first_sound.dart';
 import 'package:autec/gift.dart';
 import 'package:autec/setting.dart';
+import 'package:autec/util/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:autec/services/shared_service.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+
 
 class Clientt extends StatefulWidget {
   @override
@@ -11,6 +19,51 @@ class Clientt extends StatefulWidget {
 }
 
 class _Clientt extends State<Clientt> with TickerProviderStateMixin {
+
+  final List locale = [
+    {'name': 'ENGLISH', 'locale': Locale('en', 'US')},
+    {'name': 'FRENCH', 'locale': Locale('fr', 'FR')},
+  ];
+
+  updateLanguage(Locale locale) {
+    Get.back();
+    Get.updateLocale(locale);
+  }
+
+  //late final AudioCache _audioCache;
+  buildLanguageDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            title: Text('changelang'.tr),
+            content: Container(
+              width: double.maxFinite,
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        child: Text(locale[index]['name']),
+                        onTap: () {
+                          print(locale[index]['name']);
+                          updateLanguage(locale[index]['locale']);
+                        },
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.pink,
+                    );
+                  },
+                  itemCount: locale.length),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     TabController controller =
@@ -18,12 +71,31 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.translate),
+          color: AppColor.lightBlackColor,
+          onPressed: () async {
+            await buildLanguageDialog(context);
+          },
+        ),
         title: Text(
           'Satisfactoria',
           style: TextStyle(fontFamily: '', fontSize: 41, color: Colors.black),
         ),
         centerTitle: true,
-        actions: <Widget>[],
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  SharedService.logout(context);
+                },
+                child: Icon(
+                  Icons.power_settings_new,
+                  size: 26.0,
+                ),
+              )),
+        ], // Icon
       ),
       backgroundColor: Color(0xFFffffff),
       body: SingleChildScrollView(
@@ -64,9 +136,8 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-                    const Expanded(
-                      child: Text(
-                        '\n EVALUER VOTRE ENFANT ! \nObtenez un rapport pérsonnalisé gratuit avec des trucs et astuces pour améliorer la parole et le langage \n ',
+                     Expanded(
+                      child: Text(  '\n' + "evaluer1".tr  +'\n' + "evaluer2".tr  ,
                         style: TextStyle(fontSize: 16.0, color: Colors.white),
                       ),
                     ),
@@ -145,7 +216,7 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Setting()),
+                  MaterialPageRoute(builder: (context) => EvaluatuionPage()),
                 );
               },
             ),
@@ -155,7 +226,7 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
             ),
             RawMaterialButton(
               child: Image.asset(
-                'assets/3.jpeg',
+                'assets/quiz.png',
                 width: 300,
                 height: 300,
                 fit: BoxFit.contain,
@@ -163,7 +234,7 @@ class _Clientt extends State<Clientt> with TickerProviderStateMixin {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Setting()),
+                  MaterialPageRoute(builder: (context) => QuizInterface()),
                 );
               },
             ),

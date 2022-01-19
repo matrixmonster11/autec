@@ -4,6 +4,10 @@ import 'package:autec/gift.dart';
 import 'package:autec/setting.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
+
+import '../util/colors.dart';
 
 class AnimalsSound extends StatefulWidget {
   @override
@@ -11,7 +15,52 @@ class AnimalsSound extends StatefulWidget {
 }
 
 class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
-  late final AudioCache _audioCache;
+  late AudioCache _audioCache;
+
+  final List locale = [
+    {'name': 'ENGLISH', 'locale': Locale('en', 'US')},
+    {'name': 'FRENCH', 'locale': Locale('fr', 'FR')},
+  ];
+
+  updateLanguage(Locale locale) {
+    Get.back();
+    Get.updateLocale(locale);
+  }
+
+  //late final AudioCache _audioCache;
+  buildLanguageDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            title: Text('changelang'.tr),
+            content: Container(
+              width: double.maxFinite,
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        child: Text(locale[index]['name']),
+                        onTap: () {
+                          print(locale[index]['name']);
+                          updateLanguage(locale[index]['locale']);
+                        },
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.pink,
+                    );
+                  },
+                  itemCount: locale.length),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     TabController controller =
@@ -28,7 +77,15 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
           style: TextStyle(fontFamily: '', fontSize: 41, color: Colors.black),
         ),
         centerTitle: true,
-        actions: <Widget>[],
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.translate),
+            color: AppColor.lightBlackColor,
+            onPressed: () async {
+              await buildLanguageDialog(context);
+            },
+          ),
+        ], // Icon
       ),
       backgroundColor: Color(0xFFffffff),
       body: SingleChildScrollView(
@@ -55,6 +112,13 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 ),
                 onPressed: ()=> {_audioCache.play('audio/bee.mp3')} ,
                 ),
+            Text(
+              "bee".tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
             Container(
               height: 20.0,
             ),
@@ -67,6 +131,13 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 ),
                 onPressed: () => {_audioCache.play('audio/dog.mp3')},
                 ),
+            Text(
+              "dog".tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
             Container(
               height: 20.0,
             ),
@@ -82,6 +153,13 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 ),
                 onPressed: ()=> {_audioCache.play('audio/cat.mp3')},
                 ),
+            Text(
+              'cat'.tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
             Container(
               height: 20.0,
             ),
@@ -97,6 +175,16 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 ),
                 onPressed: () => {_audioCache.play('audio/horse.mp3')},
                 ),
+            Text(
+              'horse'.tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
+            Container(
+              height: 20.0,
+            ),
             Container(
               height: 20.0,
             ),
@@ -109,6 +197,16 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 ),
               onPressed: () => {_audioCache.play('audio/lamb.mp3')},
                 ),
+            Text(
+              'lamb'.tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
+            Container(
+              height: 20.0,
+            ),
             Container(
               height: 20.0,
             ),
@@ -119,8 +217,18 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                   height: 300,
                   fit: BoxFit.contain,
                 ),
-              onPressed: () => {_audioCache.play('audio/crickets.mp3')},
+              onPressed: () => {_audioCache.play('audio/cricket.mp3')},
                 ),
+            Text(
+              "cricket".tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
+            Container(
+              height: 20.0,
+            ),
             Container(
               height: 20.0,
             ),
@@ -133,6 +241,16 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
               ),
               onPressed: () => {_audioCache.play('audio/seagull.mp3')},
             ),
+            Text(
+              "seagull".tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
+            ),
+            Container(
+              height: 20.0,
+            ),
             Container(
               height: 20.0,
             ),
@@ -144,6 +262,13 @@ class _AnimalsSound extends State<AnimalsSound> with TickerProviderStateMixin {
                 fit: BoxFit.contain,
               ),
               onPressed: () => {_audioCache.play('audio/sparrow.mp3')},
+            ),
+            Text(
+              "sparrow".tr,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: AppColor.blackColor,
+                  fontWeight: FontWeight.w500),
             ),
           ],
         ),
